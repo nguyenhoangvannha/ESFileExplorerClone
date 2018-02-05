@@ -91,7 +91,18 @@ public class FileActivity extends AppCompatActivity {
     }
 
     public void toolbarOnClickListener(View view){
-        Toast.makeText(this, "Toolbar", Toast.LENGTH_SHORT).show();
+        switch (view.getId()){
+            case R.id.toolbar_copy:
+                break;
+            case R.id.toolbar_cut:
+                break;
+            case R.id.toolbar_delete:
+                break;
+            case R.id.toolbar_rename:
+                break;
+            case R.id.toolbar_more:
+                break;
+        }
     }
 
 
@@ -116,7 +127,7 @@ public class FileActivity extends AppCompatActivity {
                     } else {
                         view.setBackgroundColor(Color.WHITE);
                     }
-                    Toast.makeText(FileActivity.this, getSelectedFiles().toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FileActivity.this, fileListView.getChildCount()  + ":"  + getSelectedFiles().toString(), Toast.LENGTH_SHORT).show();
                 }
 
 

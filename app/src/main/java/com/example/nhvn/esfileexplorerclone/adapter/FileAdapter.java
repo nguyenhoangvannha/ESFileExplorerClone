@@ -53,11 +53,12 @@ public class FileAdapter extends BaseAdapter implements Filterable {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        View rowView = null;
-        if(view == null){
+        View rowView = view;
+        ViewHolder holder;
+        if(rowView == null){
             LayoutInflater inflater = ((Activity) context).getLayoutInflater();
             rowView = inflater.inflate(R.layout.file_item, viewGroup, false);
-            ViewHolder holder = new ViewHolder();
+            holder = new ViewHolder();
             holder.itemIconImageView = rowView.findViewById(R.id.item_icon_imageview);
             holder.itemNameTextView = rowView.findViewById(R.id.item_name_textview);
             holder.itemContainTextView = rowView.findViewById(R.id.item_contain_textview);
@@ -66,9 +67,9 @@ public class FileAdapter extends BaseAdapter implements Filterable {
             holder.itemCheckRadioButton = rowView.findViewById(R.id.item_check_radiobutton);
             rowView.setTag(holder);
         } else {
-            rowView = view;
+            //rowView = view;
+            holder = (ViewHolder) rowView.getTag();
         }
-        final ViewHolder holder = (ViewHolder) rowView.getTag();
         holder.itemNameTextView.setText(myFilesFiltered.get(i).getName());
         holder.itemContainTextView.setText(myFilesFiltered.get(i).getContain());
         holder.itemPermissionTextView.setText(myFilesFiltered.get(i).getPermission());
@@ -79,6 +80,27 @@ public class FileAdapter extends BaseAdapter implements Filterable {
             holder.itemIconImageView.setImageResource(R.drawable.file_icon);
         }
         return rowView;
+//        View rowView = null;
+//        LayoutInflater inflater = ((Activity) context).getLayoutInflater();
+//        rowView = inflater.inflate(R.layout.file_item, viewGroup, false);
+//        ViewHolder holder = new ViewHolder();
+//        holder.itemIconImageView = rowView.findViewById(R.id.item_icon_imageview);
+//        holder.itemNameTextView = rowView.findViewById(R.id.item_name_textview);
+//        holder.itemContainTextView = rowView.findViewById(R.id.item_contain_textview);
+//        holder.itemPermissionTextView = rowView.findViewById(R.id.item_permission_textview);
+//        holder.itemLastModifiedTextView = rowView.findViewById(R.id.item_last_modified_textview);
+//        holder.itemCheckRadioButton = rowView.findViewById(R.id.item_check_radiobutton);
+//
+//        holder.itemNameTextView.setText(myFilesFiltered.get(i).getName());
+//        holder.itemContainTextView.setText(myFilesFiltered.get(i).getContain());
+//        holder.itemPermissionTextView.setText(myFilesFiltered.get(i).getPermission());
+//        holder.itemLastModifiedTextView.setText(myFilesFiltered.get(i).getLastModifiedDate());
+//        if(myFilesFiltered.get(i).isDirectory()){
+//            holder.itemIconImageView.setImageResource(R.drawable.folder_icon);
+//        } else {
+//            holder.itemIconImageView.setImageResource(R.drawable.file_icon);
+//        }
+//        return rowView;
     }
 
 

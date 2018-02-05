@@ -90,6 +90,7 @@
         android:layout_marginTop="16dp"
         android:focusable="false"
         android:visibility="invisible"
+        android:focusableInTouchMode="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/linearLayout2"
